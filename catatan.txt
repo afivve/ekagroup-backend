@@ -1,0 +1,11 @@
+
+
+{
+  "judul": "promosi KOL ",
+  "deskripsi": "menjalin kerjasama dengan kol sejumlah 3 selamma abulan november",
+  "kpi": "jumlah konten KOL 3 dibuan november",
+  "start_date": "21/10/2024",
+  "deadline": "28/11/2024",
+  "id_divisi": 9,
+  "id_target": 1
+}
