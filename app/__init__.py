@@ -1,4 +1,3 @@
-
 import time
 from concurrent.futures import process
 
@@ -9,12 +8,13 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from app.api import api_router
 from pydantic_settings import BaseSettings
 
-app=FastAPI(
-    title='job_management_eka_group',
-    version='1.0.0',
+app = FastAPI(
+    title="job_management_eka_group",
+    version="1.0.0",
 )
 
 app.include_router(api_router)
+
 
 # midlewware
 class MyMiddleWare(BaseHTTPMiddleware):
@@ -22,7 +22,7 @@ class MyMiddleWare(BaseHTTPMiddleware):
         start_time = time.time()
         response = await call_next(request)
         process_time = time.time() - start_time
-        response.headers['X-Process-Time'] = str(process_time)
+        response.headers["X-Process-Time"] = str(process_time)
 
         return response
 
@@ -35,10 +35,20 @@ class MyMiddleWare(BaseHTTPMiddleware):
 
 
 # ,"http://localhost:3000","http://127.0.0.1:3000"
-origin = ["https://be.ekaroup.co",
-          "https://ekagroup.co", "https://ekagroup.co/","http://localhost:3000","http://127.0.0.1:3000"]
+origin = [
+    "https://be.ekaroup.co",
+    "https://ekagroup.co",
+    "https://ekagroup.co/",
+    "http://localhost:3000",
+    "http://localhost:3002",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:3002",
+]
 app.add_middleware(MyMiddleWare)
-app.add_middleware(CORSMiddleware, allow_origins=origin,
-                   allow_credentials=True,
-                   allow_methods=["*"],
-                   allow_headers=["*"],)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origin,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)

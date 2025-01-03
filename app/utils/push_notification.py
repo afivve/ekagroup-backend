@@ -17,7 +17,7 @@ credentials = service_account.Credentials.from_service_account_file(
 )
 
 
-async def push_notification(token: str, title: str, body: str):
+async def push_notification(token: str, title: str, body: str, url: str):
     """
     Fungsi untuk mengirim notifikasi menggunakan Firebase Cloud Messaging (FCM).
 
@@ -43,6 +43,7 @@ async def push_notification(token: str, title: str, body: str):
                 "title": title,
                 "body": body,
             },
+            "data": {"url": url},
         }
     }
 
