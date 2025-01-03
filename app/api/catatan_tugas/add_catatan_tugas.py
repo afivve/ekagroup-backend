@@ -179,7 +179,7 @@ async def add_catatan_tugas(
                 token=token,
                 title=f"{created_by} : Menambahkan Catatan Tugas ",
                 body=catatan_body,
-                url=f"https://582a-182-253-8-196.ngrok-free.app/{data.id_karyawan}/tugas/{data.id_tugas}",
+                url=f"http://localhost:3000/{data.id_karyawan}/tugas/{data.id_tugas}",
             )
             logger.info(
                 f"Notifikasi berhasil dikirim ke {data.id_karyawan} dengan token {token}: {notification_response}"
