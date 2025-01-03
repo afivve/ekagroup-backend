@@ -102,7 +102,7 @@
 #     return
 
 from typing import Optional
-from fastapi import Depends, HTTPException, Response
+from fastapi import Depends, HTTPException, Response, status
 from fastapi.encoders import jsonable_encoder
 import sqlalchemy as sa
 from pydantic import BaseModel
@@ -136,6 +136,8 @@ async def update_rencana_kerja(
         user_data = session.execute(
             sa.select(User.access, User.divisi).where(User.id_karyawan == user_id)
         ).fetchone()
+
+        print("CEK")
 
         # Cek akses user
         if user_data.access == 0:
@@ -198,12 +200,9 @@ async def update_rencana_kerja(
 
         return Response(status_code=204)
 
-    except HTTPException as e:
-        # Menangani HTTPException jika ada error yang dilempar
-        raise e
     except Exception as e:
-        # Menangani error tak terduga
+        print(f"Error occurred: {str(e)}")
         raise HTTPException(
-            status_code=500,
-            detail=f"Terjadi kesalahan saat memperbarui rencana kerja: {str(e)}",
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"An error occurred while retrieving catatan tugas: {str(e)}",
         )

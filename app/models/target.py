@@ -18,7 +18,7 @@ class Target(Base):
     id_divisi = sa.Column(
         "id_divisi", sa.Integer, sa.ForeignKey("divisi.id_divisi"), nullable=False
     )
-    status = sa.Column("status", sa.Integer, default=0, nullable=False)
+    status = sa.Column("status", sa.Integer, default=2, nullable=False)
     progres = sa.Column("progres", sa.Integer, default=0, nullable=False)
     prioritas = sa.Column("prioritas", sa.Integer, default=4, nullable=False)
     created_at = sa.Column(
