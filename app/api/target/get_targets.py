@@ -101,7 +101,7 @@ class GetDataTargetsResponseModel(BaseResponseModel):
 #         data=dataLList)
 
 
-from fastapi import Depends, HTTPException
+from fastapi import Depends, HTTPException, status
 from sqlalchemy import desc
 from sqlalchemy.orm import Session
 from app.dependencies.autentication import Autentication
@@ -169,7 +169,7 @@ async def get_targets(
         # Query untuk target berdasarkan akses user
         if user_data.access == 2:  # Akses level divisi
             targets_query = session.query(Target).filter(
-                Target.id_divisi == user_data.divisi
+                Target.id_divisi == user_data.divisi_id
             )
         else:  # Akses level admin
             if not data.id_divisi:
@@ -212,12 +212,9 @@ async def get_targets(
 
         return GetDataTargetsResponseModel(data=data_list)
 
-    except HTTPException as e:
-        # Menangani HTTPException yang dilemparkan
-        raise e
     except Exception as e:
-        # Menangani kesalahan tak terduga
+        print(f"Error occurred: {str(e)}")
         raise HTTPException(
-            status_code=500,
-            detail=f"An error occurred while fetching targets: {str(e)}",
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"An error occurred: {str(e)}",
         )

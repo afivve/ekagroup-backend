@@ -50,32 +50,32 @@ async def add_catatan_renker(
             "Catatan renker added successfully with ID %s", catatan_renker.id_catatan
         )
 
-        # Create notification payload
-        catatan_body = data.catatan[:20]
-        if len(data.catatan) > 20:
-            catatan_body += "..."
+        # # Create notification payload
+        # catatan_body = data.catatan[:20]
+        # if len(data.catatan) > 20:
+        #     catatan_body += "..."
 
-        notification_payload = create_notification_payload(
-            title="Membuat Rencana Kerja Baru",
-            body=catatan_body,
-            created_by=payload.get("username", "Unknown User"),
-            link=f"rencana_kerja/{data.id_renker}",
-            id_karyawan=payload.get("uid", "Unknown Divisi"),
-            id_divisi=payload.get("divisi_id", "Unknown Divisi"),
-            access_level_user=None,
-        )
+        # notification_payload = create_notification_payload(
+        #     title="Membuat Rencana Kerja Baru",
+        #     body=catatan_body,
+        #     created_by=payload.get("username", "Unknown User"),
+        #     link=f"rencana_kerja/{data.id_renker}",
+        #     id_karyawan=payload.get("uid", "Unknown Divisi"),
+        #     id_divisi=payload.get("divisi_id", "Unknown Divisi"),
+        #     access_level_user=None,
+        # )
 
-        notification = {
-            "title": "Membuat Rencana Kerja Baru",
-            "body": catatan_body,
-            "created_by": payload.get("username", "Unknown User"),
-            "link": f"rencana_kerja/{data.id_renker}",
-            "id_karyawan": payload.get("uid", "Unknown Divisi"),
-            "id_divisi": payload.get("divisi_id", "Unknown Divisi"),
-            "access_level_user": None,
-        }
+        # notification = {
+        #     "title": "Membuat Rencana Kerja Baru",
+        #     "body": catatan_body,
+        #     "created_by": payload.get("username", "Unknown User"),
+        #     "link": f"rencana_kerja/{data.id_renker}",
+        #     "id_karyawan": payload.get("uid", "Unknown Divisi"),
+        #     "id_divisi": payload.get("divisi_id", "Unknown Divisi"),
+        #     "access_level_user": None,
+        # }
 
-        id_karyawan = payload.get("uid")
+        # id_karyawan = payload.get("uid")
 
         # await broadcast_notification(user_id=id_karyawan, notification=notification)
 
