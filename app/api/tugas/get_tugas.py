@@ -68,8 +68,8 @@ async def get_tugas(
 
         tugas = session.query(Tugas).filter(Tugas.id_tugas == data.id_tugas).first()
 
-        if not tugas:
-            raise HTTPException(404, detail="Tugas tidak tersedia")
+        # if not tugas:
+        #     raise HTTPException(404, detail="Tugas tidak tersedia")
 
         pelaksana = (
             session.query(User.full_name)

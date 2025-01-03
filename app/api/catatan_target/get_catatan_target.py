@@ -52,12 +52,12 @@ async def get_catatan_target(
             )
         ).scalar()
 
-        if response is None:
+        # if response is None:
 
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
-                detail=f"Catatan with id {request.id_catatan} not found",
-            )
+        #     raise HTTPException(
+        #         status_code=status.HTTP_404_NOT_FOUND,
+        #         detail=f"Catatan with id {request.id_catatan} not found",
+        #     )
 
         return GetDataCatatanTargetResponseModel(
             data=GetCatatanTargetResponseModel(catatan=response),

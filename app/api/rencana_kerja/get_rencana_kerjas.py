@@ -72,8 +72,8 @@ async def get_rencana_kerjas(
         renkers = query.all()
 
         # Jika tidak ada data yang ditemukan
-        if not renkers:
-            raise HTTPException(404, detail="Rencana Kerja tidak ditemukan")
+        # if not renkers:
+        #     raise HTTPException(404, detail="Rencana Kerja tidak ditemukan")
 
         # Konversi hasil query ke list model
         data_list = [

@@ -51,11 +51,11 @@ async def get_catatan_tugas(
         ).scalar()
 
         # Check if the catatan exists
-        if not response:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
-                detail=f"Catatan with id {request.id_catatan} not found",
-            )
+        # if not response:
+        #     raise HTTPException(
+        #         status_code=status.HTTP_404_NOT_FOUND,
+        #         detail=f"Catatan with id {request.id_catatan} not found",
+        #     )
 
         # Return the successful response with the catatan data
         return GetDataCatatanTugasResponseModel(

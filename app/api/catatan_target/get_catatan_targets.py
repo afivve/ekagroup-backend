@@ -57,10 +57,10 @@ async def get_catatan_targets(
         ).all()
 
         # If no data is found, raise a 404 error
-        if len(response) == 0:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND, detail="Target not available"
-            )
+        # if len(response) == 0:
+        #     raise HTTPException(
+        #         status_code=status.HTTP_404_NOT_FOUND, detail="Target not available"
+        #     )
 
         # Build the list of Catatan objects
         datalist = [

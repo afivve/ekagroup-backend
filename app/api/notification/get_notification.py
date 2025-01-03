@@ -215,8 +215,8 @@ async def get_notifications(
             select(User).filter(User.id_karyawan == id_karyawan_payload)
         ).scalar_one_or_none()
 
-        if not user:
-            raise HTTPException(status_code=404, detail="User not found")
+        # if not user:
+        #     raise HTTPException(status_code=404, detail="User not found")
 
         # Query notifikasi dengan filter tambahan berdasarkan divis_id dan access_level
         query = (

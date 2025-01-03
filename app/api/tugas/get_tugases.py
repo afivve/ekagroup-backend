@@ -59,8 +59,8 @@ async def get_tugases(
         user_id = payload.get("uid", 0)
         user_data = session.query(User).filter(User.id_karyawan == user_id).first()
 
-        if not user_data:
-            raise HTTPException(404, detail="User not found")
+        # if not user_data:
+        #     raise HTTPException(404, detail="User not found")
 
         if user_data.access == 0:
             raise HTTPException(403, detail="User does not have access")
@@ -87,9 +87,6 @@ async def get_tugases(
             .filter(and_(*filters))
         )
         tugases = tugases_query.all()
-
-        if not tugases:
-            raise HTTPException(404, detail="No tasks found")
 
         def pelaksana(id_karyawan):
             return (

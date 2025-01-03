@@ -69,8 +69,8 @@ async def get_rencana_kerja(
             .first()
         )
 
-        if not renker:
-            raise HTTPException(404, detail="Rencana Kerja tidak tersedia")
+        # if not renker:
+        #     raise HTTPException(404, detail="Rencana Kerja tidak tersedia")
 
         # Mapping data ke model response
         rencana_ = RencanaKerjaModel(

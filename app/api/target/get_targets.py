@@ -186,8 +186,8 @@ async def get_targets(
         # Eksekusi query
         targets = targets_query.all()
 
-        if not targets:
-            raise HTTPException(404, detail="No targets found")
+        # if not targets:
+        #     raise HTTPException(404, detail="No targets found")
 
         # Konversi hasil query ke list model
         data_list = [

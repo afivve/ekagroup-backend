@@ -60,10 +60,10 @@ async def get_divisies(
         )  # Pastikan hasilnya unik dengan .unique()
 
         # If no divisies are found
-        if not divisies:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND, detail="No divisies found"
-            )
+        # if not divisies:
+        #     raise HTTPException(
+        #         status_code=status.HTTP_404_NOT_FOUND, detail="No divisies found"
+        #     )
 
         # Helper function to count the number of users in a division
         def jml_karyawan(divisi):

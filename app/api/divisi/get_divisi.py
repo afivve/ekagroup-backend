@@ -163,11 +163,11 @@ async def get_divisi(
             .first()
         )  # Get the first matching Divisi object
 
-        if not divisi:
-            # If divisi is not found, raise a 404 error
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND, detail="Divisi not found"
-            )
+        # if not divisi:
+        #     # If divisi is not found, raise a 404 error
+        #     raise HTTPException(
+        #         status_code=status.HTTP_404_NOT_FOUND, detail="Divisi not found"
+        #     )
 
         # Determine the manager of the divisi
         manager = None

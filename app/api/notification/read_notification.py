@@ -43,8 +43,8 @@ async def mark_notification_read(
         result = session.execute(query)
         notification = result.scalars().first()
 
-        if not notification:
-            raise HTTPException(status_code=404, detail="Notification not found")
+        # if not notification:
+        #     raise HTTPException(status_code=404, detail="Notification not found")
 
         # Check if the notification has already been marked as read by this user
         check_existing_query = select(UserNotification).filter(
